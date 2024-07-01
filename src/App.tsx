@@ -1,7 +1,7 @@
 import './../src/static/scss/main.scss'
-import CreateMonth from './utils/helpers/date/CreateMonth'
+import CreateYear from './utils/helpers/date/CreateYear'
 
-console.log('CreateDate', CreateMonth({ locale: 'en-US' }).createMonthDays())
+console.log('CreateDate', CreateYear({ locale: 'en-US' }).createYearMonthes())
 
 function App() {
 	return <div className='app_container'>Calendar</div>

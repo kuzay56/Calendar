@@ -1,4 +1,3 @@
-import React from 'react'
 import createDate from './CreateDate'
 import GetMonthNumberOfDays from './GetMonthNumberOfDays'
 
