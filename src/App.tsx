@@ -1,10 +1,19 @@
-import './../src/static/scss/main.scss'
-import CreateYear from './utils/helpers/date/CreateYear'
+import React from 'react'
 
-console.log('CreateDate', CreateYear({ locale: 'en-US' }).createYearMonthes())
+import Calendar from './components/Calendar/Calendar'
+import GetMonthesNames from './utils/helpers/date'
+
+import './../src/static/scss/main.scss'
+
+console.log('CreateDate', GetMonthesNames())
 
 function App() {
-	return <div className='app_container'>Calendar</div>
+	const [selectedDate, selectDate] = React.useState(new Date())
+	return (
+		<div className='app_container'>
+			<Calendar selectDate={selectDate} selectedDate={selectedDate} />
+		</div>
+	)
 }
 
 export default App

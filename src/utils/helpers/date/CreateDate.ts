@@ -22,7 +22,7 @@ const createDate = (params?: CreateDateParams) => {
 	const timestamp = d.getTime()
 	const week = GetWeekNumber(d)
 	return {
-		d,
+		date: d,
 		dayNumber,
 		day,
 		dayNumberInWeek,
