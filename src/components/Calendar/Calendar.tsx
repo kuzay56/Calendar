@@ -1,4 +1,5 @@
 import React from 'react'
+import useCalendar from './Hooks/useCalendar'
 
 interface CalendarProps {
 	locale?: string
@@ -6,8 +7,12 @@ interface CalendarProps {
 	selectDate: (date: Date) => void
 }
 
-const Calendar: React.FC<CalendarProps> = () => {
-	console.log('@')
+const Calendar: React.FC<CalendarProps> = ({
+	locale = 'default',
+	selectDate,
+	selectedDate,
+}) => {
+	const {} = useCalendar({ locale, selectedDate })
 
 	return <div>popa</div>
 }

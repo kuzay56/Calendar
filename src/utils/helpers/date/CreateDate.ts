@@ -5,13 +5,13 @@ interface CreateDateParams {
 	date?: Date
 }
 
-const createDate = (params?: CreateDateParams) => {
+const CreateDate = (params?: CreateDateParams) => {
 	const locale = params?.locale ?? 'default'
 
 	const d = params?.date ?? new Date()
 	const dayNumber = d.getDate()
 	const day = d.toLocaleDateString(locale, { weekday: 'long' })
-	const dayNumberInWeek = d.getDate() + 1
+	const dayNumberInWeek = d.getDay() + 1
 	const dayShort = d.toLocaleDateString(locale, { weekday: 'short' })
 	const year = d.getFullYear()
 	const yearShort = d.toLocaleDateString(locale, { year: '2-digit' })
@@ -38,4 +38,4 @@ const createDate = (params?: CreateDateParams) => {
 	}
 }
 
-export default createDate
+export default CreateDate

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Calendar from './components/Calendar/Calendar'
-import GetMonthesNames from './utils/helpers/date'
+import GetMonthesNames from './utils/helpers/date/GetMonthNames'
 
 import './../src/static/scss/main.scss'
 
