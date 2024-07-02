@@ -8,8 +8,10 @@ import GetWeekDaysNames from '../../../utils/helpers/date/GetWeekDaysNames'
 interface useCalendarParams {
 	locale?: string
 	selectedDate: Date
+	firstWeekDay: number
 }
 const useCalendar = ({
+	firstWeekDay = 2,
 	locale = 'default',
 	selectedDate: date,
 }: useCalendarParams) => {
@@ -24,9 +26,17 @@ const useCalendar = ({
 	const [selectedYear, setSelectedYear] = React.useState(selectedDate.year)
 
 	const monthNames = React.useMemo(() => GetMonthNames(locale), [])
-	const weekDaysNames = React.useMemo(() => GetWeekDaysNames(locale), [])
+	const weekDaysNames = React.useMemo(
+		() => GetWeekDaysNames(firstWeekDay, locale),
+		[]
+	)
 
-	console.log('weekDaysNames', weekDaysNames)
+	const days = React.useMemo(
+		() => selectedMonth.createMonthDays(),
+		[selectedMonth, selectedYear]
+	)
+
+	console.log('days', days)
 
 	return {}
 }
