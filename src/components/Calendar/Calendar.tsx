@@ -3,7 +3,11 @@ import React from 'react'
 import useCalendar from './Hooks/useCalendar'
 
 import './Calendar.scss'
-import { GetWeekDaysNames } from '../../utils/helpers/date'
+import {
+	CheckDateIsEqual,
+	CheckIsTodayDate,
+	GetWeekDaysNames,
+} from '../../utils/helpers/date'
 
 interface CalendarProps {
 	locale?: string
@@ -57,7 +61,36 @@ const Calendar: React.FC<CalendarProps> = ({
 								</div>
 							))}
 						</div>
-						<div className='calendar__day'>123</div>
+						<div className='calendar__days'>
+							{state.calendarDays.map(day => {
+								const isToday = CheckIsTodayDate(day.date)
+								const isSelectedDay = CheckDateIsEqual(
+									day.date,
+									state.selectedDay.date
+								)
+								const isAdditionalDay =
+									day.monthIndex !== state.selectedMonth.monthIndex
+
+								return (
+									<div
+										key={`${day.dayNumber}-${day.monthIndex}`}
+										aria-hidden
+										// onClick={() => {
+										// 	functions.setSelectedDay(day)
+										// 	selectDate(day.date)
+										// }}
+										className={[
+											'calendar__day',
+											isToday ? 'calendar__today__item' : '',
+											isSelectedDay ? 'calendar__selected__item' : '',
+											isAdditionalDay ? 'calendar__additional__day' : '',
+										].join(' ')}
+									>
+										{day.dayNumber}
+									</div>
+								)
+							})}
+						</div>
 					</div>
 				)}
 			</div>

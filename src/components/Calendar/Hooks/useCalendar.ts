@@ -24,16 +24,16 @@ const useCalendar = ({
 	selectedDate: date,
 }: useCalendarParams) => {
 	const [mode, setMode] = React.useState<'days' | 'monthes' | 'years'>('days')
-	const [selectedDate, setSelectedDay] = React.useState(CreateDate({ date }))
+	const [selectedDay, setSelectedDay] = React.useState(CreateDate({ date }))
 	const [selectedMonth, setSelectedMonth] = React.useState(
 		CreateMonth({
-			date: new Date(selectedDate.year, selectedDate.monthIndex),
+			date: new Date(selectedDay.year, selectedDay.monthIndex),
 			locale,
 		})
 	)
-	const [selectedYear, setSelectedYear] = React.useState(selectedDate.year)
+	const [selectedYear, setSelectedYear] = React.useState(selectedDay.year)
 	const [selectedYearInterval, setSelectedYearInterval] = React.useState(
-		getYearsInterval(selectedDate.year)
+		getYearsInterval(selectedDay.year)
 	)
 
 	const monthesNames = React.useMemo(() => GetMonthNames(locale), [])
@@ -49,7 +49,7 @@ const useCalendar = ({
 
 	const calendarDays = React.useMemo(() => {
 		const monthNumberOfDays = GetMonthNumberOfDays(
-			selectedDate.monthIndex,
+			selectedMonth.monthIndex,
 			selectedYear
 		)
 		const prevMonthDays = CreateMonth({
@@ -105,7 +105,7 @@ const useCalendar = ({
 			calendarDays,
 			weekDaysNames,
 			monthesNames,
-			selectedDate,
+			selectedDay,
 			selectedMonth,
 			selectedYear,
 			selectedYearInterval,
