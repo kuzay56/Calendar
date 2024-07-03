@@ -1,6 +1,6 @@
-import CreateDate from './CreateDate'
+import { CreateDate } from './index'
 
-const GetWeekDaysNames = (
+export const GetWeekDaysNames = (
 	firstWeekDay: number = 1,
 	locale: string = 'default'
 ) => {
@@ -23,5 +23,3 @@ const GetWeekDaysNames = (
 		...weekDaysNames.slice(0, firstWeekDay - 1),
 	]
 }
-
-export default GetWeekDaysNames

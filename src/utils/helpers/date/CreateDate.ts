@@ -5,7 +5,7 @@ interface CreateDateParams {
 	date?: Date
 }
 
-const CreateDate = (params?: CreateDateParams) => {
+export const CreateDate = (params?: CreateDateParams) => {
 	const locale = params?.locale ?? 'default'
 
 	const d = params?.date ?? new Date()
@@ -38,4 +38,4 @@ const CreateDate = (params?: CreateDateParams) => {
 	}
 }
 
-export default CreateDate
+// export default CreateDate

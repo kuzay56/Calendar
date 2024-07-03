@@ -1,15 +1,22 @@
 import React from 'react'
 
-import CreateDate from '../../../utils/helpers/date/CreateDate'
-import CreateMonth from '../../../utils/helpers/date/CreateMonth'
-import GetMonthNames from '../../../utils/helpers/date/GetMonthNames'
-import GetWeekDaysNames from '../../../utils/helpers/date/GetWeekDaysNames'
-import GetMonthNumberOfDays from '../../../utils/helpers/date/GetMonthNumberOfDays'
+import {
+	CreateDate,
+	CreateMonth,
+	GetMonthNames,
+	GetWeekDaysNames,
+	GetMonthNumberOfDays,
+} from '../../../utils/helpers/date'
 
 interface useCalendarParams {
 	locale?: string
 	selectedDate: Date
 	firstWeekDay: number
+}
+
+const getYearsInterval = (year: number) => {
+	const startYear = Math.floor(year / 10) * 10
+	return [...Array(10)].map((_, index) => startYear + index)
 }
 const useCalendar = ({
 	firstWeekDay = 2,
@@ -25,8 +32,11 @@ const useCalendar = ({
 		})
 	)
 	const [selectedYear, setSelectedYear] = React.useState(selectedDate.year)
+	const [selectedYearInterval, setSelectedYearInterval] = React.useState(
+		getYearsInterval(selectedDate.year)
+	)
 
-	const monthNames = React.useMemo(() => GetMonthNames(locale), [])
+	const monthesNames = React.useMemo(() => GetMonthNames(locale), [])
 	const weekDaysNames = React.useMemo(
 		() => GetWeekDaysNames(firstWeekDay, locale),
 		[]
@@ -88,9 +98,22 @@ const useCalendar = ({
 		}
 		return result
 	}, [selectedMonth.year, selectedMonth.monthIndex, selectedYear])
-	console.log(calendarDays)
 
-	return {}
+	return {
+		state: {
+			mode,
+			calendarDays,
+			weekDaysNames,
+			monthesNames,
+			selectedDate,
+			selectedMonth,
+			selectedYear,
+			selectedYearInterval,
+		},
+		functions: {
+			setMode,
+		},
+	}
 }
 
 export default useCalendar

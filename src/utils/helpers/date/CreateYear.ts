@@ -1,5 +1,4 @@
-import createDate from './CreateDate'
-import CreateMonth from './CreateMonth'
+import { CreateDate, CreateMonth } from './index'
 
 interface CreateYearParams {
 	locale?: string
@@ -7,11 +6,11 @@ interface CreateYearParams {
 	monthNumber?: number
 }
 
-const CreateYear = (params?: CreateYearParams) => {
+export const CreateYear = (params?: CreateYearParams) => {
 	const locale = params?.locale ?? 'default'
 
 	const monthCount = 12
-	const today = createDate()
+	const today = CreateDate()
 
 	const year = params?.year ?? today.year
 	const monthNumber = params?.monthNumber ?? today.monthNumber
@@ -35,5 +34,3 @@ const CreateYear = (params?: CreateYearParams) => {
 		year,
 	}
 }
-
-export default CreateYear
