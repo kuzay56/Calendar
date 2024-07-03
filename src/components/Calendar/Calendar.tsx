@@ -3,6 +3,7 @@ import React from 'react'
 import useCalendar from './Hooks/useCalendar'
 
 import './Calendar.scss'
+import { GetWeekDaysNames } from '../../utils/helpers/date'
 
 interface CalendarProps {
 	locale?: string
@@ -45,6 +46,20 @@ const Calendar: React.FC<CalendarProps> = ({
 					</div>
 				)}
 				<div aria-hidden className='calendar__header__arrow__right' />
+			</div>
+			<div className='calendar__body'>
+				{state.mode === 'days' && (
+					<div>
+						<div className='calendar__week__names'>
+							{state.weekDaysNames.map(GetWeekDaysNames => (
+								<div key={GetWeekDaysNames.dayShort}>
+									{GetWeekDaysNames.dayShort}
+								</div>
+							))}
+						</div>
+						<div className='calendar__day'>123</div>
+					</div>
+				)}
 			</div>
 		</div>
 	)
