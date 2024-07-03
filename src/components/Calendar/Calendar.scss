@@ -9,6 +9,7 @@
 		border-radius: 5px 5px 0 0;
 		background-color: var(--background-color-calendar-header);
 		color: var(--color-text);
+
 		padding: 10px;
 		display: flex;
 		justify-content: space-between;
@@ -59,6 +60,10 @@
 		grid-template-columns: repeat(7, 1fr);
 		grid-template-rows: 1fr;
 		gap: 1px 1px;
+	}
+
+	&__show__date {
+		cursor: pointer;
 	}
 
 	&__day {

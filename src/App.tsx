@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Calendar from './components/Calendar/Calendar'
+import { Calendar } from './components/Calendar/Calendar'
 import { FormateDate } from './utils/helpers/date'
 
 import './../src/static/scss/main.scss'
