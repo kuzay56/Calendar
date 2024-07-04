@@ -37,5 +37,3 @@ export const CreateDate = (params?: CreateDateParams) => {
 		week,
 	}
 }
-
-// export default CreateDate

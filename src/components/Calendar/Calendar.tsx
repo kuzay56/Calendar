@@ -135,7 +135,7 @@ export const Calendar: React.FC<CalendarProps> = ({
 
 				{state.mode === 'years' && (
 					<div className='calendar__pick__items__container'>
-						<div className='calendar__unchoosable__year'>
+						<div className='calendar__unselectable__year'>
 							{state.selectedYearsInterval[0] - 1}
 						</div>
 						{state.selectedYearsInterval.map(year => {
@@ -160,7 +160,7 @@ export const Calendar: React.FC<CalendarProps> = ({
 								</div>
 							)
 						})}
-						<div className='calendar__unchoosable__year'>
+						<div className='calendar__unselectable__year'>
 							{state.selectedYearsInterval[
 								state.selectedYearsInterval.length - 1
 							] + 1}
