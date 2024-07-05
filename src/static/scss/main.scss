@@ -1,3 +1,14 @@
+:root {
+	--color-text: #ffffff;
+	--color-placeholder: rgba(255, 255, 255, 0.5);
+	--color-additional: #93b1ff;
+	--color-additional7: rgba(147, 177, 255, 0.7);
+	--background-color-calendar: #3a3e42;
+	--background-color-calendar-header: #575c63;
+
+	--images-arrow: url('../img/arrow.svg');
+}
+
 .app__container {
 	display: flex;
 	justify-content: center;
@@ -16,48 +27,3 @@
 	padding: 5px 25px;
 	margin-bottom: 15px;
 }
-
-:root {
-	/* colors */
-	--color-text: #ffffff;
-	--color-placeholder: rgba(255, 255, 255, 0.5);
-	--color-additional: #93b1ff;
-	--color-additional7: rgba(147, 177, 255, 0.7);
-	--background-color-calendar: #3a3e42;
-	--background-color-calendar-header: #575c63;
-
-	/* images */
-	--images-arrow: url('../img/arrow.svg');
-	/* spacing */
-	/* text */
-}
-
-// :root {
-// 	/* colors */
-// 	--color-text: #434141;
-// 	--color-placeholder: rgba(0, 0, 0, 0.5);
-// 	--color-additional: #93b1ff;
-// 	--color-additional7: rgba(147, 177, 255, 0.7);
-// 	--background-color-calendar: #ededed;
-// 	--background-color-calendar-header: #ffffff;
-
-// 	/* images */
-// 	--images-arrow: url('../img/arrow.svg');
-// 	/* spacing */
-// 	/* text */
-// }
-
-// :root {
-// 	/* colors */
-// 	--color-text: #434141;
-// 	--color-placeholder: rgba(0, 0, 0, 0.5);
-// 	--color-additional: rgb(100, 188, 255);
-// 	--color-additional7: rgba(100, 188, 255, 0.7);
-// 	--background-color-calendar: #ededed;
-// 	--background-color-calendar-header: rgb(136, 202, 252);
-
-// 	/* images */
-// 	--images-arrow: url('../img/arrow_white.svg');
-// 	/* spacing */
-// 	/* text */
-// }
